@@ -1,65 +1,21 @@
-body 
-{
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    background-color: #f5f5f5;
-    color: #333;
+// Dark Mode Toggle
+const button = document.getElementById("dark-mode-toggle");
+
+button.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+});
+
+//Typing Effect
+const text = "Aspiring Software Developer";
+const typingElement = document.getElementById("typing-text");
+let index = 0;
+
+function typeText() {
+  if (index < text.length) {
+    typingElement.innerHTML += text.charAt(index);
+    index++;
+    setTimeout(typeText, 100); // speed of typing
+  }
 }
 
-header
-{
-    background: #222;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-nav a
-{
-    color: white;
-    max-width: 800px;
-    margin: auto;
-}
-
-footer
-{
-    text-align: center;
-    padding: 20px;
-    background: #222;
-    color: white;
-}
-
-.dark
-{
-    background-color: #121212;
-    color: white;
-}
-
-.dark header,
-.dark footer 
-{
-    background-color: #1e1e1e;
-}
-
-#dark-mode-toggle
-{
-    margin: 20px;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-html
-{
-    scroll-behavior: smooth;
-}
-
-#typing-text
-{
-    font-size: 1.5rem;
-    font-weight: bold;
-    border-right: 2px solid black;
-    white-space: nowrap;
-    overflow: hidden;
-}
+typeText();
